@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 
 
            dryRun = true,
-          tags="@us04"
+          tags=""
 
 )
 public class TestRunner {
