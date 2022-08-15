@@ -3,6 +3,9 @@
 SELECT id
 FROM users;
 
+SELECT DISTINCT id
+FROM users;
+
 SELECT * FROM users;
 
 -- us02 borrowed books number information must match with DB
@@ -20,9 +23,9 @@ WHERE is_returned = 0;
 SELECT book_categories.name, COUNT(*) AS countofbookcategories
 FROM book_borrow
          INNER JOIN books
-             ON book_borrow.book_id = books.id
+                    ON book_borrow.book_id = books.id
          INNER JOIN book_categories
-             ON books.book_category_id = book_categories.id
+                    ON books.book_category_id = book_categories.id
 GROUP BY book_categories.name
 ORDER BY countofbookcategories DESC;
 
@@ -37,8 +40,8 @@ SELECT full_name, COUNT(*) AS countofreadbooks
 FROM users u
          INNER JOIN book_borrow bb ON u.id = bb.user_id
 GROUP BY full_name
-ORDER BY 2 DESC;
-;
+ORDER BY countofreadbooks DESC;
+
 
 
 -- us05  query to get the book  "Chordeiles minor" information from books table
